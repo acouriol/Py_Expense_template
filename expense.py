@@ -28,9 +28,9 @@ def new_expense(*args):
 
     infos = prompt(expense_questions)
 
-    fd = open('expense-report.csv', 'w')
+    fd = open('expense_report.csv', 'w')
     count = 0
-    writer = csv.DictWriter(fd, 'expense-report.csv')
+    writer = csv.DictWriter(fd, 'expense_report.csv')
     writer.writerow(infos)
     fd.close()
     # Writing the informations on external file might be a good idea ¯\_(ツ)_/¯

@@ -1,3 +1,4 @@
+import csv
 from PyInquirer import prompt
 user_questions = [
     {
@@ -12,5 +13,10 @@ user_questions = [
 
 def add_user():
 
-    answers = prompt(user_questions)
-    return print_json(answers)
+    infos = prompt(user_questions)
+    fd = open('users.csv', 'w')
+    count = 0
+    writer = csv.DictWriter(fd, 'users.csv')
+    writer.writerow(infos)
+    fd.close()
+    return infos
