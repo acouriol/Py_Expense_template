@@ -13,18 +13,10 @@ user_questions = [
 
 def add_user():
 
-    fd = open('users.csv', 'w')
-    count = 0
     infos = prompt(user_questions)
-
-    for val in infos:
-        if count == 0:
-            
-            header = val.keys()
-            fd.writerow(header)
-            count += 1
- 
-        fd.writerow(val.values())
-
-    fd.close()
+    # fd = open('users.csv', 'w')
+    with open('users.csv', 'w') as fd:
+        writer = csv.DictWriter(fd)
+        writer.writerow(infos)
+        fd.close()
     return infos
