@@ -9,6 +9,7 @@ expense_questions = [
         "type": "input",
         "name": "amount",
         "message": "New Expense - Amount: ",
+        "validate":  lambda val: type(val) == int or type(val) == float
     },
     {
         "type": "input",
@@ -18,8 +19,15 @@ expense_questions = [
     {
         "type": "input",
         "name": "spender",
-        "message": "New Expemense - Spender: ",
+        "message": "New Expense - Spender: ",
+        "choices": csv.reader('users.csv'),
     },
+    {
+        "type": "input",
+        "name": "involved",
+        "message": "New Expense - People involved: ",
+        "choices": csv.reader('users.csv'),
+    }
 
 ]
 
