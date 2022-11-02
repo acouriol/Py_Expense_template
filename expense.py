@@ -9,7 +9,6 @@ expense_questions = [
         "type": "input",
         "name": "amount",
         "message": "New Expense - Amount: ",
-        "validate":  lambda val: type(val) == int or type(val) == float
     },
     {
         "type": "input",
@@ -38,7 +37,7 @@ def new_expense(*args):
 
     fd = open('expense_report.csv', 'w')
     count = 0
-    writer = csv.DictWriter(fd, 'expense_report.csv')
+    writer = csv.DictWriter(fd, ['amount', 'label', 'spender', 'involved'])
     writer.writerow(infos)
     fd.close()
     # Writing the informations on external file might be a good idea ¯\_(ツ)_/¯

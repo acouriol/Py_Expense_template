@@ -16,7 +16,8 @@ def add_user():
     infos = prompt(user_questions)
     # fd = open('users.csv', 'w')
     with open('users.csv', 'w') as fd:
-        writer = csv.DictWriter(fd)
+        writer = csv.DictWriter(fd, ['first_name'] )
+        
         writer.writerow(infos)
         fd.close()
     return infos
